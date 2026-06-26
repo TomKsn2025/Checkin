@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>ระบบลงชื่อเข้างาน หจก.โนวาโซล</title>
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
@@ -20,12 +20,12 @@
   --shadow-md:0 4px 20px rgba(38,166,154,.12);
   --shadow-lg:0 8px 40px rgba(38,166,154,.18);
   --radius:16px; --radius-sm:10px; --sidebar-width:56px; --sidebar-expanded:230px;
-  --font:'Kanit',sans-serif;
+  --font:'Chakra Petch',sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body,input,select,textarea,button,label,span,div,p,h1,h2,h3,h4,h5,h6,td,th,li,a {
-  font-family:'Kanit',sans-serif!important;
+  font-family:'Chakra Petch',sans-serif!important;
 }
 body{background:var(--yellow-bg);color:var(--gray-800);height:100vh;display:flex;overflow:hidden;font-size:16px}
 
@@ -132,6 +132,7 @@ main{flex:1;overflow-y:auto;padding:24px;background:var(--yellow-bg)}
 
 /* CARDS */
 .cards-row{display:grid;gap:16px;margin-bottom:24px}
+.cards-5{grid-template-columns:repeat(5,1fr)}
 .cards-4{grid-template-columns:repeat(4,1fr)}
 .cards-3{grid-template-columns:repeat(3,1fr)}
 .cards-2{grid-template-columns:repeat(2,1fr)}
@@ -302,15 +303,15 @@ main{flex:1;overflow-y:auto;padding:24px;background:var(--yellow-bg)}
 .gas-url-input{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
 
 /* SweetAlert2 */
-.swal2-popup{font-family:'Kanit',sans-serif!important;border-radius:var(--radius)!important}
-.swal2-title,.swal2-content,.swal2-html-container{font-family:'Kanit',sans-serif!important}
+.swal2-popup{font-family:'Chakra Petch',sans-serif!important;border-radius:var(--radius)!important}
+.swal2-title,.swal2-content,.swal2-html-container{font-family:'Chakra Petch',sans-serif!important}
 .swal2-confirm{background:linear-gradient(135deg,var(--teal),var(--teal-dark))!important;
-  border-radius:10px!important;font-family:'Kanit',sans-serif!important;font-weight:600!important}
-.swal2-cancel{border-radius:10px!important;font-family:'Kanit',sans-serif!important;font-weight:600!important}
+  border-radius:10px!important;font-family:'Chakra Petch',sans-serif!important;font-weight:600!important}
+.swal2-cancel{border-radius:10px!important;font-family:'Chakra Petch',sans-serif!important;font-weight:600!important}
 
 /* RESPONSIVE */
-@media(max-width:1200px){.cards-4{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:900px){.cards-4{grid-template-columns:repeat(2,1fr)}.form-grid-3{grid-template-columns:1fr 1fr}}
+@media(max-width:1200px){.cards-4{grid-template-columns:repeat(2,1fr)}.cards-5{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:900px){.cards-4{grid-template-columns:repeat(2,1fr)}.cards-5{grid-template-columns:repeat(2,1fr)}.form-grid-3{grid-template-columns:1fr 1fr}}
 @media(max-width:768px){
   body{overflow:hidden}
   .hamburger{display:flex}
@@ -323,7 +324,7 @@ main{flex:1;overflow-y:auto;padding:24px;background:var(--yellow-bg)}
   main{padding:14px 12px 90px;width:100%;overflow-y:auto;-webkit-overflow-scrolling:touch}
   .bottom-nav{display:block}
   .page-header{flex-direction:column;margin-bottom:14px;gap:10px;padding-top:6px}
-  .cards-4,.cards-3{grid-template-columns:repeat(2,1fr)}
+  .cards-4,.cards-3,.cards-5{grid-template-columns:repeat(2,1fr)}
   .cards-2{grid-template-columns:1fr}
   .form-grid-2,.form-grid-3{grid-template-columns:1fr}
   .glass{padding:14px}
@@ -623,11 +624,12 @@ main{flex:1;overflow-y:auto;padding:24px;background:var(--yellow-bg)}
     <button class="btn btn-outline" onclick="loadDashboard()"><i class="fas fa-sync-alt"></i> รีเฟรช</button>
   </div>
   <div id="dashReadonlyBanner" class="readonly-banner" style="display:none"><i class="fas fa-eye"></i> คุณกำลังดูข้อมูลในโหมดพนักงาน — ไม่สามารถแก้ไขข้อมูลได้</div>
-  <div class="cards-row cards-4">
+  <div class="cards-row cards-5">
     <div class="stat-card g1"><i class="fas fa-calendar-day stat-card-icon"></i><div class="stat-card-label"><i class="fas fa-users"></i> งานวันนี้</div><div class="stat-card-value" id="ds-total">-</div><div class="stat-card-sub">รายการ</div></div>
     <div class="stat-card g2"><i class="fas fa-check-circle stat-card-icon"></i><div class="stat-card-label"><i class="fas fa-user-check"></i> เข้างานแล้ว</div><div class="stat-card-value" id="ds-checkedin">-</div><div class="stat-card-sub">คน</div></div>
     <div class="stat-card g3"><i class="fas fa-times-circle stat-card-icon"></i><div class="stat-card-label"><i class="fas fa-user-times"></i> รอ/ขาดงาน</div><div class="stat-card-value" id="ds-absent">-</div><div class="stat-card-sub">คน</div></div>
     <div class="stat-card g5"><i class="fas fa-chart-line stat-card-icon"></i><div class="stat-card-label"><i class="fas fa-calendar-alt"></i> บันทึกเดือนนี้</div><div class="stat-card-value" id="ds-month">-</div><div class="stat-card-sub">รายการ</div></div>
+    <div class="stat-card g6"><i class="fas fa-id-badge stat-card-icon"></i><div class="stat-card-label"><i class="fas fa-users"></i> พนักงานทั้งหมด</div><div class="stat-card-value" id="ds-allemp">-</div><div class="stat-card-sub">คนในระบบ</div></div>
   </div>
   <div style="display:grid;grid-template-columns:2fr 1fr;gap:20px">
     <div class="glass"><div class="glass-header"><div class="glass-title"><div class="icon-box g1"><i class="fas fa-chart-bar"></i></div> 7 วันล่าสุด</div></div><canvas id="chartWeekly" height="90"></canvas></div>
@@ -1494,12 +1496,22 @@ async function handleCheckOut(){
 ════════════════════════════════════════ */
 async function loadDashboard(){
   showLoading('กำลังโหลดแดชบอร์ด...');
-  const logs=await dbGetAll('logs'), schedules=await dbGetAll('schedule');
+  const logs=await dbGetAll('logs'), schedules=await dbGetAll('schedule'), emps=await dbGetAll('employees');
+  const activeEmps=emps.filter(e=>e['สถานะ']!=='ลาออก');
   const today=todayStr(), thisMonth=today.substring(0,7);
   const todayLogs=logs.filter(l=>l['วันที่']===today), todaySched=schedules.filter(s=>s['วันที่']===today&&s['สถานะ']!=='ยกเลิก');
-  const checkedIn=todayLogs.length, total=Math.max(todaySched.length,checkedIn), absent=Math.max(0,total-checkedIn);
+  const checkedInIds=new Set(todayLogs.map(l=>l['รหัสพนักงาน']));
+  const scheduledIds=new Set(todaySched.map(s=>s['รหัสพนักงาน']));
+  const total=new Set([...scheduledIds,...checkedInIds]).size||todaySched.length||todayLogs.length;
+  const checkedIn=checkedInIds.size;
+  const absent=Math.max(0,(scheduledIds.size||total)-checkedIn);
   const monthLogs=logs.filter(l=>l['วันที่'].startsWith(thisMonth));
-  document.getElementById('ds-total').textContent=total;document.getElementById('ds-checkedin').textContent=checkedIn;document.getElementById('ds-absent').textContent=absent;document.getElementById('ds-month').textContent=monthLogs.length;
+  document.getElementById('ds-total').textContent=total;
+  document.getElementById('ds-checkedin').textContent=checkedIn;
+  document.getElementById('ds-absent').textContent=absent;
+  document.getElementById('ds-month').textContent=monthLogs.length;
+  const allEmpEl=document.getElementById('ds-allemp');
+  if(allEmpEl)allEmpEl.textContent=activeEmps.length;
   const last7=[];for(let i=6;i>=0;i--){const d=new Date();d.setDate(d.getDate()-i);const ds=d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());last7.push({label:pad(d.getDate())+'/'+pad(d.getMonth()+1),count:logs.filter(l=>l['วันที่']===ds).length});}
   renderRecentLogs(logs.slice(-15).reverse());renderWeeklyChart(last7);renderTodayChart({checkedIn,absent});hideLoading();
 }
